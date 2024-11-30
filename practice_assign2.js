@@ -53,7 +53,66 @@ console.log(stringToArray('Lady Bird')); // ["Lady", "Bird"];
   @return String
 */
 // your code goes here
-let truncate = (text, len) => text.slice(0, 4);
+let truncate = (text, len) => text.slice(0, len);
 
 // Test
 console.log(truncate('John Snow', 4)); // "John";
+
+
+// Write a function to convert a string name in abbreviated form.
+/* Requirements
+  @name abbrevName
+  @parameter (string) fullName
+  @return String
+*/
+
+// your code goes here
+let abbrevName = (fullName) => {
+  let nameArr = fullName.split(" ");
+  return nameArr[0] + " " + nameArr[nameArr.length-1][0];
+} 
+
+// Test
+console.log(abbrevName('Robin Singh')); //"Robin S."
+console.log(abbrevName('John Snow')); //"John S."example.com"
+
+
+// Write a function to hide email addresses to protect from unauthorized user.
+/* Requirements
+  @name protect
+  @parameter (string) email
+  @return String
+*/
+
+// your code goes here
+let protect = (email) => email.replace(email.substring(4, email.indexOf('@')), '...');
+
+// Or
+
+// let protect = (email) => {
+//   return email.slice(0, 4) + '...@example.com';
+// }
+
+// Test
+console.log(protect('johnS@example.com')); // "john...@example.com"
+console.log(protect('arya_stark@example.com')); // "arya...@
+
+
+// Write a function to hide email addresses to protect from unauthorized user. The number of dots should be same as length of left characters.
+/* Requirements
+  @name protectAgain
+  @parameter (string) email
+  @return String
+*/
+
+// your code goes here
+let protectAgain = (email) => {
+  for(let i = 4; i < email.indexOf('@'); i++) {
+    email[i] = '.';
+  }
+return email;
+}
+
+// Test
+console.log(protectAgain('johnS@example.com')); // "john.@example.com"
+console.log(protectAgain('arya_stark@example.com')); // "arya......@example.com"
