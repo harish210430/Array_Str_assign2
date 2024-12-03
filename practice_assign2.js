@@ -95,7 +95,7 @@ let protect = (email) => email.replace(email.substring(4, email.indexOf('@')), '
 
 // Test
 console.log(protect('johnS@example.com')); // "john...@example.com"
-console.log(protect('arya_stark@example.com')); // "arya...@
+console.log(protect('arya_stark@example.com')); // "arya...@example.com"
 
 
 // Write a function to hide email addresses to protect from unauthorized user. The number of dots should be same as length of left characters.
@@ -106,13 +106,40 @@ console.log(protect('arya_stark@example.com')); // "arya...@
 */
 
 // your code goes here
-let protectAgain = (email) => {
+let protectAgain = (email) =>  {
+  let protectEmail = email.substring(0, 4);
   for(let i = 4; i < email.indexOf('@'); i++) {
-    email[i] = '.';
+    protectEmail = protectEmail + '.';
   }
-return email;
+  protectEmail = protectEmail + email.substring(email.indexOf('@'));
+  return protectEmail;
+};
+
+// OR
+
+let protectAgain2 = (email) => {
+  let arrEmail = email.split('@');
+  // let dotLength = arrEmail[0].length - 4;
+  let first = arrEmail[0].substring(0, 4).padEnd(arrEmail[0].length, '.');
+  let second = `@${arrEmail[1]}`;
+  return first + second;
+  return dotLength;
 }
+// Test
+
+console.log(protectAgain2('johnS@example.com')); // "john.@example.com"
+console.log(protectAgain2('arya_stark@example.com')); // "arya......@example.com"
+
+
+// Write a function to parameterize a string.
+/* Requirements
+  @name parameterize
+  @parameter (string) str
+  @return String
+*/
+
+// your code goes here
 
 // Test
-console.log(protectAgain('johnS@example.com')); // "john.@example.com"
-console.log(protectAgain('arya_stark@example.com')); // "arya......@example.com"
+console.log(parameterize('John Snow from Winterfell')); // "john-snow-from-winterfell"
+console.log(parameterize('Arya Stark from Winterfell')); // "arya-stark-from-winterfell"
