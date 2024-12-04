@@ -139,7 +139,50 @@ console.log(protectAgain2('arya_stark@example.com')); // "arya......@example.com
 */
 
 // your code goes here
+let parameterize = (str) => str.split(" ").join("-");
 
 // Test
 console.log(parameterize('John Snow from Winterfell')); // "john-snow-from-winterfell"
 console.log(parameterize('Arya Stark from Winterfell')); // "arya-stark-from-winterfell"
+
+
+// Write a function to capitalize the first letter of a string.
+/* Requirements
+@name capitalizeFirst
+@parameter (string, number) text, len
+@return String
+*/
+
+// your code goes here
+
+// let capitalizeFirst = (str) => {
+// let arr = str.slice(1, str.length-1);
+// return str[0].toUpperCase().concat(arr);
+// };
+
+// OR
+
+let capitalizeFirst = (str) => str.replace(str[0], str[0].toUpperCase());
+// Test
+console.log(capitalizeFirst('we are learning')); // "We are learning"
+console.log(capitalizeFirst('learning Javascript')); // "Learning Javascript"
+
+
+// Write a function to capitalize the first letter of each word in a string.
+/* Requirements
+  @name capitalizeWords
+  @parameter (string) text
+  @return String
+*/
+
+// your code goes here
+let capitalizeWords = (str) => {
+  let strArr = str.split(" ");
+  for(let i=0; i<=strArr.length; i++) {
+    return i;
+  }
+}
+
+// Test
+console.log(capitalizeWords('we are learning')); // "We Are Learning"
+// console.log(capitalizeWords('learning javascript')); // "Learnign Javascript"
